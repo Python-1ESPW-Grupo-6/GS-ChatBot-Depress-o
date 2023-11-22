@@ -1,6 +1,12 @@
 import random
+from datetime import datetime
+import os
 
 ultima_pergunta = [1]
+
+timestamp = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+nova_atualização = f'Não se sentiu bem: {timestamp}\n\n'
+nome_arquivo = 'relatório.txt'
 
 def chatbot(resposta):
     respostas_prontas = {
@@ -11,6 +17,15 @@ def chatbot(resposta):
         "não estou bem!": ["Tente relaxar, leia um livro ou escute uma musica relaxante!", "Tente assistir um programa de tv animador!", 
                            "Ligue para alguma pessoa próxima, um amigo ou algum parente!"]
     }
+
+    if resposta.lower() == "não estou bem!":
+        if os.path.exists(nome_arquivo):
+            with open(nome_arquivo, 'a') as arquivo:
+                arquivo.write(nova_atualização)
+        else:
+            with open(nome_arquivo, 'w', encoding='utf-8') as arquivo:
+                arquivo.write(nova_atualização)
+
 
     # Verifica se a pergunta está nas respostas prontas
     if resposta.lower() == "gostaria de outra dica." and "não estou bem!" in ultima_pergunta:
