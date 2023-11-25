@@ -12,7 +12,7 @@ def chatbot(resposta):
     respostas_prontas = {
         "oi": ["Olá, sou o ChatBot!"],
         "como você está?": ["Estou bem, obrigado!", "Ótimo!", "Mais ou menos."],
-        "qual é o seu nome?": ["Meu nome é ChatBot.", "Pode me chamar de ChatBot."],
+        "qual é o seu nome?": ["Meu nome é SereniBOT.", "Pode me chamar de SereniBOT."],
         "o que você faz?": ["Eu sou um chatbot simples, programado em Python, para te ajudar!", "Minha função é te ajudar!"],
         "não estou bem!": ["Tente relaxar, leia um livro ou escute uma musica relaxante!", "Tente assistir um programa de tv animador!", 
                            "Ligue para alguma pessoa próxima, um amigo ou algum parente!"]
