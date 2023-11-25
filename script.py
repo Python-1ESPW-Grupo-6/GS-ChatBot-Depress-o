@@ -5,8 +5,13 @@ import os
 ultima_pergunta = [1]
 
 timestamp = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
-nova_atualização = f'Não se sentiu bem: {timestamp}\n\n'
+nova_atualização = f'Não se sentiu bem: {timestamp}\n'
 nome_arquivo = 'relatório.txt'
+
+def erro():
+    print('-'*30)
+    print('Opção não encontrada, tente novamente!')
+    print('-'*30)
 
 def chatbot(resposta):
     respostas_prontas = {
@@ -39,17 +44,46 @@ def pergunta(resposta):
     del ultima_pergunta[0]
     ultima_pergunta.append(resposta)
     
-
-# Exemplo de uso
 while True:
-    pergunta_usuario = input("Você: ")
-    print('')
+    try:
+        menu = int(input('''Bem vindo ao SereniBOT?
+    [1] Iniciar Chat
+    [2] Ver relatório
+    [3] Sair do programa\nSeleciona a opção desejada: '''))
+        print('')
+        
+        match menu:
 
-    if pergunta_usuario.lower() == 'sair':
-        print("Até mais!")
-        break
+            case 1:
+                while True:
+                    pergunta_usuario = input("Você: ")
+                    print('')
 
-    resposta_chatbot = chatbot(pergunta_usuario)
-    pergunta(pergunta_usuario)
-    print("ChatBot:", resposta_chatbot)
-    print('')
+                    if pergunta_usuario.lower() == 'voltar para o menu.':
+                        print("Até mais!")
+                        print('')
+                        break
+
+                    resposta_chatbot = chatbot(pergunta_usuario)
+                    pergunta(pergunta_usuario)
+                    print("ChatBot:", resposta_chatbot)
+                    print('')
+            
+            case 2:
+                if os.path.exists(nome_arquivo):
+                    with open(nome_arquivo, 'r') as arquivo:
+                        for linha in arquivo:
+                            print(linha)
+                else:
+                    print('Não há dados ainda!')
+                    print('')
+
+            case 3:
+                print('Finalizando Programa...')
+                break
+
+            case _:
+                erro()
+
+    except ValueError:
+        erro()
