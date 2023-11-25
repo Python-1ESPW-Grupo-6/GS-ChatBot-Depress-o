@@ -54,4 +54,4 @@ Para conhecer mais sobre o projeto, você pode acessar o nosso [website](https:/
 ___
 
 ### Links Referênciais
-  [Link para o vídeo explicativo do projeto no Google Drive](https://drive.google.com/file/d/1FRL0DYbdf_lZA3VVLezCz0-VFfhisSBV/view?usp=sharing)
+  [Link para o vídeo explicativo do projeto no Google Drive](https://drive.google.com/file/d/1UrzboQKOGO3IVyECo0kdRl6vz0ekNTWc/view?usp=sharing)
